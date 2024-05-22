@@ -19,3 +19,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  snyk:
+    runs-on: ubuntu-latest
+    needs: sonarcloud
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/python@master #Need to be change, if using other language.
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}    
