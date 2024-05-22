@@ -1,9 +1,9 @@
 name: DevSecOps Pipeline
-on: 
+on:
   push:
     branches:
       - master
-jobs: 
+jobs:
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
