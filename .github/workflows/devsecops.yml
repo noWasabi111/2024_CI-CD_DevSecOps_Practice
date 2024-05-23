@@ -46,7 +46,9 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}    
         with:
           args: --all-projects
-          command: code test
+          #use code test to do SAST
+          #test for SCA
+          command: test
   # zap_scan:
   #   runs-on: ubuntu-latest
   #   name: zap
