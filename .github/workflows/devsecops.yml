@@ -37,7 +37,21 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        
+  snyk0:
+    runs-on: ubuntu-latest
+    needs: sonarcloud
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/python-3.10@master #Need to be change, if using other language.
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}    
+        with:
+          args: --all-projects
+          #use code test to do SAST
+          #test for SCA
+          command: code test
   snyk:
     runs-on: ubuntu-latest
     needs: sonarcloud
