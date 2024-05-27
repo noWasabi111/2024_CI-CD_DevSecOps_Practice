@@ -37,11 +37,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          arg: >
-            Dsonar.projectKey=ncyu-1092955_2024-ci-cd-devsecops-practice
-            Dsonar.organization=ncyu-1092955
-            Dsonar.python.coverage.reportPaths=coverage.xml
+        
   snyk:
     runs-on: ubuntu-latest
     needs: sonarcloud
