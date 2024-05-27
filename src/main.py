@@ -1,3 +1,3 @@
-user_input = input("Enter your username: ")
-query = "SELECT * FROM users WHERE username = '" + user_input + "';"
-print(query)  # This can be exploited
+import pickle
+serialized_data = input("Enter serialized data: ")
+deserialized_data = pickle.loads(serialized_data.encode('latin1'))  # Unsafe deserialization
