@@ -20,6 +20,10 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     # - name: Automatic requirements.txt for Python Project
     #   uses: ryan-rozario/pipreqs-action@master
+    - name: Install tox and any other packages
+      run: pip install tox
+    - name: Run tox
+      run: tox -e py
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
