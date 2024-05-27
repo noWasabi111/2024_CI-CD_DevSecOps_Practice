@@ -31,8 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
-          # Disabling shallow clone is recommended for improving relevancy of reporting
-          fetch-depth: 0
+          fetch-depth: 0 # Disabling shallow clone is recommended for improving relevancy of reporting
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
