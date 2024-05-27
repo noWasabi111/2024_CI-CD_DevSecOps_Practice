@@ -1,3 +1,5 @@
-import pickle
-serialized_data = input("Enter serialized data: ")
-deserialized_data = pickle.loads(serialized_data.encode('latin1'))  # Unsafe deserialization
+import os
+
+directory = input("Enter the directory to list: ")
+command = f"ls {directory}"  # Vulnerable to Command Injection
+os.system(command)
